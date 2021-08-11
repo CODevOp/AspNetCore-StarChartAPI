@@ -9,18 +9,14 @@ using StarChart.Data;
 namespace StarChart.Controllers
 {
     [ApiController]
+    [Route("")]
     public class CelestialObjectController : ControllerBase
     {
+        private ApplicationDbContext _context { get; set; }
         public CelestialObjectController(ApplicationDbContext context)
         {
             _context = context;
-        }
-
-        private readonly ApplicationDbContext _context { get; set; }
-        [Route("")]
-        public IActionResult Index()
-        {
-            return View();
-        }
+        }       
+  
     }
 }
