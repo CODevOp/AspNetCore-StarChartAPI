@@ -21,10 +21,22 @@ namespace StarChart.Controllers
 
         [HttpGet("{id:int}", Name = "GetById")]
         public IActionResult GetById(int id) {
-        }
-        [HttpGet("{name}")]
-        public IActionResult GetByName(string name) { }
+            var value = _context.CelestialObjects.FirstOrDefault(e => e.Id == id);
 
-        public IActionResult GetAll() { }
+            if(value == null)
+            {
+
+                return NotFound();
+            }
+            return NotFound();
+
+            
+        }
+        //[HttpGet("{name}")]
+        //public IActionResult GetByName(string name) { }
+
+        //public IActionResult GetAll() { 
+        //    _context<CelestialObject>.
+        //}
     }
 }
