@@ -62,8 +62,14 @@ namespace StarChart.Controllers
             }
 
             return Ok(celestialObjects);
+        }
+        [HttpPost]
+        public IActionResult Create([FromBody]CelestialObject celestialObject)
+        {
+            var celestialObjects = _context.CelestialObjects.Add(celestialObject); 
+            _context.SaveChanges();
 
-
+            return CreatedAtRoute("GetById", _context.CelestialObjects.Last().Id);    
         }
     }
 }
